@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
+# Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C3092F55-794C-4623-8C77-67BB1343339C}"
@@ -49,6 +49,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDox.RegressionTests", "Tests\SharpDox.RegressionTests\SharpDox.RegressionTests.csproj", "{0A886C13-DD26-46AD-822C-0B118501512C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDox.Build.NRefactory", "Libraries\SharpDox.Build.NRefactory\SharpDox.Build.NRefactory.csproj", "{96484AC9-7AAA-4D8C-AEA3-157630727E8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDox.Build.Roslyn", "SharpDox.Build.Roslyn\SharpDox.Build.Roslyn.csproj", "{3A99D3D1-06E7-47D2-8E1D-C5571AA23E08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -124,6 +126,10 @@ Global
 		{96484AC9-7AAA-4D8C-AEA3-157630727E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96484AC9-7AAA-4D8C-AEA3-157630727E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96484AC9-7AAA-4D8C-AEA3-157630727E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A99D3D1-06E7-47D2-8E1D-C5571AA23E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A99D3D1-06E7-47D2-8E1D-C5571AA23E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A99D3D1-06E7-47D2-8E1D-C5571AA23E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A99D3D1-06E7-47D2-8E1D-C5571AA23E08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +147,7 @@ Global
 		{3CB8094E-FFE2-4EF1-8366-E6B9C91D4831} = {B31D7989-25F8-4468-BF06-ADC904683296}
 		{C163B044-A70B-43AD-849C-E3315647EC34} = {B31D7989-25F8-4468-BF06-ADC904683296}
 		{96484AC9-7AAA-4D8C-AEA3-157630727E8B} = {B31D7989-25F8-4468-BF06-ADC904683296}
+		{3A99D3D1-06E7-47D2-8E1D-C5571AA23E08} = {B31D7989-25F8-4468-BF06-ADC904683296}
 		{ABE5A687-0D1A-46FF-9C27-CEAF2602E470} = {3E517440-122B-4FD9-9306-7B750C8E0B2D}
 		{25A379AC-786A-49E1-821C-5CC97EB149CE} = {3E517440-122B-4FD9-9306-7B750C8E0B2D}
 	EndGlobalSection
