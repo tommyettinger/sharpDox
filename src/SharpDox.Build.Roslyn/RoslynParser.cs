@@ -24,10 +24,10 @@ namespace SharpDox.Build.Roslyn
         public SDRepository GetStructureParsedSolution(string solutionFile)
         {
             var sdRepository = new SDRepository();
-            var solution = LoadSolution(solutionFile, 3);
+            /*var solution = LoadSolution(solutionFile, 3);
 
             StructureParseNamespaces(solution, sdRepository);
-            StructureParseTypes(solution, sdRepository);
+            StructureParseTypes(solution, sdRepository);*/
 
             return sdRepository;
         }
@@ -35,17 +35,17 @@ namespace SharpDox.Build.Roslyn
         public SDRepository GetFullParsedSolution(string solutionFile, ICoreConfigSection sharpDoxConfig)
         {
             var sdRepository = new SDRepository();
-            var solution = LoadSolution(solutionFile, 5);
+            /*var solution = LoadSolution(solutionFile, 5);
 
             ParseNamespaces(solution, sdRepository, sharpDoxConfig);
             ParseTypes(solution, sdRepository, sharpDoxConfig);
             ParseMethodCalls(solution, sdRepository);
-            ResolveUses(sdRepository);
+            ResolveUses(sdRepository);*/
 
             return sdRepository;
         }
 
-        private CSharpSolution LoadSolution(string solutionFile, int steps)
+        /*private CSharpSolution LoadSolution(string solutionFile, int steps)
         {
             var solution = MSBuildWorkspace.Create().OpenSolutionAsync("");
             solution.RunSynchronously();
@@ -60,7 +60,7 @@ namespace SharpDox.Build.Roslyn
             solution.LoadSolution(solutionFile);
 
             return solution;
-        }
+        }*/
 
         private void ExecuteOnDocLanguageFound(string lang)
         {
