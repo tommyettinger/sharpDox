@@ -33,11 +33,13 @@ namespace SharpDox.Build.NRefactory.Parser
 
         private SDField GetParsedField(IField field)
         {
+            string acc = field.Accessibility.ToString().ToLower();
+            if (acc == "none") acc = "public";
             var sdField = new SDField(field.GetIdentifier())
             {
                 Name = field.Name,
                 DeclaringType = _typeParser.GetParsedType(field.DeclaringType),
-                Accessibility = field.Accessibility.ToString().ToLower(),
+                Accessibility = acc,
                 ReturnType = _typeParser.GetParsedType(field.ReturnType),
                 ConstantValue = field.ConstantValue != null ? field.ConstantValue.ToString() : string.Empty,
                 IsConst = field.IsConst,
@@ -64,10 +66,12 @@ namespace SharpDox.Build.NRefactory.Parser
 
         private static SDField GetMinimalParsedField(IField field)
         {
+            string acc = field.Accessibility.ToString().ToLower();
+            if (acc == "none") acc = "public";
             return new SDField(field.GetIdentifier())
             {
                 Name = field.Name,
-                Accessibility = field.Accessibility.ToString().ToLower()
+                Accessibility = acc
             };
         }
     }

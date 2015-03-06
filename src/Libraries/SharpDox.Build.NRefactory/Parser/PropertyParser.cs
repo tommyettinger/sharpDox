@@ -33,11 +33,13 @@ namespace SharpDox.Build.NRefactory.Parser
 
         private SDProperty GetParsedProperty(IProperty property)
         {
+            string acc = property.Accessibility.ToString().ToLower();
+            if (acc == "none") acc = "public";
             var sdProperty = new SDProperty(property.GetIdentifier())
             {
                 Name = property.Name,
                 DeclaringType = _typeParser.GetParsedType(property.DeclaringType),
-                Accessibility = property.Accessibility.ToString().ToLower(),
+                Accessibility = acc,
                 ReturnType = _typeParser.GetParsedType(property.ReturnType),
                 CanGet = property.CanGet,
                 CanSet = property.CanSet,
@@ -66,10 +68,12 @@ namespace SharpDox.Build.NRefactory.Parser
 
         private static SDProperty GetMinimalParsedProperty(IProperty property)
         {
+            string acc = property.Accessibility.ToString().ToLower();
+            if(acc == "none") acc = "public";
             return new SDProperty(property.GetIdentifier())
             {
                 Name = property.Name,
-                Accessibility = property.Accessibility.ToString().ToLower()
+                Accessibility = acc
             };
         }
     }

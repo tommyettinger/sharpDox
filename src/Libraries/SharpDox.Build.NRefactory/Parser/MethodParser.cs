@@ -54,13 +54,16 @@ namespace SharpDox.Build.NRefactory.Parser
 
             var returnType = _typeParser.GetParsedType(method.ReturnType);
 
+            string acc = method.Accessibility.ToString().ToLower();
+            if (acc == "none") acc = "public";
+
             sdMethod = new SDMethod(method.GetIdentifier(), isCtor ? method.DeclaringType.Name : method.Name)
             {
                 Namespace = method.Namespace,
                 DeclaringType = _typeParser.GetParsedType(method.DeclaringType),
                 ReturnType = returnType,
                 IsCtor = isCtor,
-                Accessibility = method.Accessibility.ToString().ToLower(),
+                Accessibility = acc,
                 IsAbstract = method.IsAbstract,
                 IsShadowing = method.IsShadowing,
                 IsOverride = method.IsOverride,
@@ -132,10 +135,12 @@ namespace SharpDox.Build.NRefactory.Parser
 
         private static SDMethod GetMinimalParsedMethod(IMethod method, bool isCtor)
         {
+            string acc = method.Accessibility.ToString().ToLower();
+            if(acc == "none") acc = "public";
             return new SDMethod(method.GetIdentifier(), isCtor ? method.DeclaringType.Name : method.Name)
             {
                 IsCtor = isCtor,
-                Accessibility = method.Accessibility.ToString().ToLower()
+                Accessibility = acc
             };
         }
     }

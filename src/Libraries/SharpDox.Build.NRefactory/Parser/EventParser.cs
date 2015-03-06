@@ -34,11 +34,13 @@ namespace SharpDox.Build.NRefactory.Parser
 
         private SDEvent GetParsedEvent(IEvent eve)
         {
+            string acc = eve.Accessibility.ToString().ToLower();
+            if (acc == "none") acc = "public";
             var sdEvent = new SDEvent(eve.GetIdentifier())
             {
                 Name = eve.Name,
                 DeclaringType = _typeParser.GetParsedType(eve.DeclaringType),
-                Accessibility = eve.Accessibility.ToString().ToLower(),
+                Accessibility = acc,
                 Documentations = _documentationParser.ParseDocumentation(eve)
             };
 
@@ -61,10 +63,12 @@ namespace SharpDox.Build.NRefactory.Parser
 
         private static SDEvent GetMinimalParsedEvent(IEvent eve)
         {
+            string acc = eve.Accessibility.ToString().ToLower();
+            if (acc == "none") acc = "public";
             return new SDEvent(eve.GetIdentifier())
             {
                 Name = eve.Name,
-                Accessibility = eve.Accessibility.ToString().ToLower()
+                Accessibility = acc
             };
         }
     }
